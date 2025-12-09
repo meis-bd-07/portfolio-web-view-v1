@@ -9,17 +9,17 @@ interface BreadcrumbItem {
 // Route to breadcrumb mapping
 const routeBreadcrumbs: Record<string, BreadcrumbItem[]> = {
   "/": [
-    { label: "Docs", href: "/" },
-    { label: "Layouts and Pages", href: "/" },
+    { label: "Introduction", href: "/" },
   ],
-  "/getting-started": [
-    { label: "Docs", href: "/" },
-    { label: "Getting Started", href: "/getting-started" },
+  "/about-me": [
+    { label: "About Me", href: "/about-me" },
   ],
-  "/api-reference": [
-    { label: "Docs", href: "/" },
-    { label: "API Reference", href: "/api-reference" },
+  "/projects": [
+    { label: "Projects", href: "/projects" },
   ],
+  "/skills": [
+    { label: "Skills", href: "/skills" },
+  ]
 };
 
 export function Breadcrumbs() {

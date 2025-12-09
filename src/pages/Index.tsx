@@ -1,206 +1,79 @@
-import { DocsLayout } from "@/components/layout/DocsLayout";
-import { CodeBlock, FileTree } from "@/components/docs/CodeBlock";
-import { Breadcrumbs } from "@/components/docs/Breadcrumbs";
+import { CodeBlock } from "@/components/docs/CodeBlock";
 import { PrevNextNav } from "@/components/docs/PrevNextNav";
+import DecryptText from "@/components/custom/decrypt-text";
+import AnimatedTextBlock from "@/components/custom/animated-text-block";
+import TypingText from "@/components/custom/typing-text";
+
+// const blockText = `
+// <p className="text-sm sm:text-base text-muted-foreground">
+// I am a <code className="code-inline">JavaScript-focused developer</code> with <code className="code-inline">7+ years</code> of experience building scalable, high-performance web and mobile applications.
+// As a full-stack <code className="code-inline">mobile app developer</code> specializing in <code className="code-inline underlined underline-clip">React Native</code>, 
+// I create robust <code className="code-inline">hybrid apps</code> for both <code className="code-inline underlined underline-mask">Android</code> and <code className="code-inline underlined underline-mask">iOS</code>, delivering smooth, user-friendly experiences tailored to diverse client needs.
+
+// My expertise spans <code className="code-inline underlined underline-clip">React</code>, <code className="code-inline underlined underline-clip">React Native</code>, <code className="code-inline">Node.js</code>, NestJS, <code className="code-inline">Next.js</code>, and <code className="code-inline underlined underline-clip">TypeScript</code>, 
+// enabling me to design and develop end-to-end solutions—from intuitive front-end interfaces to secure, optimized backend systems. 
+
+// I have extensive experience with <code className="code-inline underlined underline-overflow">micro-frontend</code> architecture, <code className="code-inline">multilingual platforms</code>, and <code className="code-inline">permission-based systems</code>, along with strong skills in API development, database design, and performance optimization.
+// With 4+ years of <code className="code-inline underlined underline-overflow">team leadership</code>, I’ve led successful development initiatives in Agile environments using GitHub, CI/CD pipelines, Docker, and modern cloud technologies. 
+// I’m committed to delivering clean, maintainable code and high-quality products that exceed expectations.
+
+// If you’re looking for a reliable and versatile developer to bring your ideas to life with scalable, modern architecture—I'm here to help.
+// </p>
+// `;
+const blockText = `
+<p className="text-sm sm:text-base text-muted-foreground">
+JavaScript-focused full-stack developer with <code className="code-inline">7+</code> years of experience specializing 
+in React Native (hybrid app for <code className="code-inline underlined underline-clip">Android</code> & <code className="code-inline underlined underline-clip">iOS</code>) and modern web frameworks. 
+I build smooth, scalable digital products with clean code, strong micro-frontend architecture, multilingual support, and optimized backend services 
+powered by <code className="code-inline underlined underline-clip">React</code> - Vite, <code className="code-inline underlined underline-clip">React Native</code>, Next.js, Node.js, Nest.js and <code className="code-inline underlined underline-overflow">TypeScript</code>.
+
+With 4+ years of team <code className="code-inline underlined underline-overflow">leadership</code>, I’ve led successful development initiatives in Agile environments using GitHub, CI/CD pipelines, Docker, and modern cloud technologies. 
+I’m committed to delivering clean, maintainable code and high-quality products that exceed expectations.
+</p>
+`;
 
 const Index = () => {
   return (
-    <DocsLayout>
-      {/* Breadcrumbs */}
-      <Breadcrumbs />
-      
+    <>
       {/* Page header */}
       <div className="mb-6 sm:mb-8">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
-          Layouts and Pages
+          G'day 👋, I'm Erfanul Islam
         </h1>
-        <p className="text-xs sm:text-sm text-muted-foreground">
-          Last updated October 22, 2025
-        </p>
+        <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
+          <p><DecryptText text="First Solve The Problem, Then Write Code" speed={30} /> </p>
+        </blockquote>
       </div>
 
-      {/* Intro paragraph */}
-      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6 sm:mb-8">
-        Next.js uses <span className="text-foreground font-medium">file-system based routing</span>, meaning you can use folders and files to define routes. This page will guide you through how to create layouts and pages, and link between them.
-      </p>
-
       <hr className="border-border mb-6 sm:mb-8" />
-
-      {/* Creating a page section */}
-      <section id="creating-a-page" className="mb-10 sm:mb-12">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          Creating a page
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          A <span className="text-foreground font-medium">page</span> is UI that is rendered on a specific route. To create a page, add a{" "}
-          <code className="code-inline">page</code> file inside the{" "}
-          <code className="code-inline">app</code> directory and default export a React component. For example, to create an index page (<code className="code-inline">/</code>):
-        </p>
-
-        <div className="space-y-4 mb-6">
-          <FileTree
-            items={[
-              { name: "app", type: "folder" },
-              { name: "page.js", type: "file", indicator: true },
-            ]}
-            arrow
-            result="/"
-          />
-
-          <CodeBlock
-            filename="app/page.tsx"
-            language="tsx"
-            collapsible
-            code={`export default function Page() {
-  return <h1>Hello Next.js!</h1>
-}`}
-          />
-        </div>
-      </section>
-
-      {/* Creating a layout section */}
+      <TypingText
+        text={[
+          "JavaScript-focused fullstack developer", 
+          "Mobile Application By React Native", 
+          "Cross Platform Mobile App Android & Ios",
+          "React with Vite & Next.js",
+          "Typescript",
+          "Micro-frontend architecture, Multilingual platforms, and Permission-based systems",
+          "Node.js, Nest.js with Prisma",
+          "Agile environments using GitHub, CI/CD pipelines, Docker, and modern cloud integrations",
+        ]}
+        typingSpeed={75}
+        pauseDuration={1500}
+        showCursor={true}
+        cursorCharacter="|"
+        className="text-xl sm:text-2xl font-semibold text-muted-foreground"
+        // textColors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+        variableSpeed={{ min: 50, max: 120 }}
+      />
       <section id="creating-a-layout" className="content-section">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          Creating a layout
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          A layout is UI that is <span className="text-foreground font-medium">shared</span> between multiple pages. On navigation, layouts preserve state, remain interactive, and do not re-render.
-        </p>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          You can define a layout by default exporting a React component from a{" "}
-          <code className="code-inline">layout</code> file. The component should accept a <code className="code-inline">children</code> prop which can be a page or another layout.
-        </p>
-
         <CodeBlock
-          filename="app/layout.tsx"
-          language="tsx"
+          filename="/introduction-summary"
+          language="txt"
           collapsible
-          code={`export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body>
-        <nav>{/* Navigation */}</nav>
-        <main>{children}</main>
-      </body>
-    </html>
-  )
-}`}
+          component={<AnimatedTextBlock classes="text-sm sm:text-base text-muted-foreground" htmlText={blockText.trim()} speed={10} />}
         />
       </section>
-
-      {/* Creating a nested route section */}
-      <section id="creating-a-nested-route" className="content-section">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          Creating a nested route
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          A nested route is a route composed of multiple URL segments. For example, the <code className="code-inline">/blog/[slug]</code> route is composed of three segments:
-        </p>
-        <ul className="list-disc list-inside text-sm sm:text-base text-muted-foreground space-y-2 mb-6">
-          <li><code className="code-inline">/</code> (Root Segment)</li>
-          <li><code className="code-inline">blog</code> (Segment)</li>
-          <li><code className="code-inline">[slug]</code> (Leaf Segment)</li>
-        </ul>
-      </section>
-
-      {/* Nesting layouts section */}
-      <section id="nesting-layouts" className="content-section">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          Nesting layouts
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          By default, layouts in the folder hierarchy are nested, which means they wrap child layouts via their <code className="code-inline">children</code> prop. You can nest layouts by adding a <code className="code-inline">layout</code> file inside specific route segments (folders).
-        </p>
-
-        <CodeBlock
-          filename="app/dashboard/layout.tsx"
-          language="tsx"
-          collapsible
-          code={`export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <section>
-      <nav>Dashboard Navigation</nav>
-      {children}
-    </section>
-  )
-}`}
-        />
-      </section>
-
-      {/* Creating a dynamic segment section */}
-      <section id="creating-a-dynamic-segment" className="content-section">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          Creating a dynamic segment
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          When you don't know the exact segment names ahead of time and want to create routes from dynamic data, you can use Dynamic Segments that are filled in at request time or prerendered at build time.
-        </p>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          A Dynamic Segment can be created by wrapping a folder's name in square brackets: <code className="code-inline">[folderName]</code>. For example, <code className="code-inline">[id]</code> or <code className="code-inline">[slug]</code>.
-        </p>
-
-        <CodeBlock
-          filename="app/blog/[slug]/page.tsx"
-          language="tsx"
-          collapsible
-          code={`export default function BlogPost({
-  params,
-}: {
-  params: { slug: string }
-}) {
-  return <h1>Blog Post: {params.slug}</h1>
-}`}
-        />
-      </section>
-
-      {/* Linking between pages section */}
-      <section id="linking-between-pages" className="content-section">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          Linking between pages
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-          You can use the <code className="code-inline">&lt;Link&gt;</code> component to navigate between routes. <code className="code-inline">&lt;Link&gt;</code> is a built-in component that extends the HTML <code className="code-inline">&lt;a&gt;</code> tag to provide prefetching and client-side navigation.
-        </p>
-
-        <CodeBlock
-          filename="app/page.tsx"
-          language="tsx"
-          collapsible
-          code={`import Link from 'next/link'
-
-export default function Page() {
-  return (
-    <nav>
-      <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
-      <Link href="/blog/hello-world">Blog Post</Link>
-    </nav>
-  )
-}`}
-        />
-      </section>
-
-      {/* API Reference section */}
-      <section id="api-reference" className="content-section">
-        <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-          API Reference
-        </h2>
-        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-          Learn more about the features mentioned in this page by reading the API Reference.
-        </p>
-      </section>
-
-      {/* Previous/Next Navigation */}
-      <PrevNextNav />
-    </DocsLayout>
+    </>
   );
 };
 

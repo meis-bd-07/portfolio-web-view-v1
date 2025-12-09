@@ -1,104 +1,49 @@
-import { useState } from "react";
-import { ChevronDown, ChevronRight, Package, Tag } from "lucide-react";
+import { useLayoutEffect, useState } from "react";
+import { ChevronRight, ExternalLink, Tag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MobileToc } from "@/components/docs/MobileToc";
+import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
+
+export type INavValue = "home" | "about-me" | "projects" | "skills" | "tools" | "experiences" | "education" | "contact-me" | "stats" | "cover-letter" | "resume" | 'blogs' | "gallery"
 
 interface NavItem {
   label: string;
   href?: string;
   active?: boolean;
   items?: NavItem[];
+  value: INavValue;
 }
-
-interface NavGroupProps {
-  label: string;
-  icon?: React.ReactNode;
-  subtitle?: string;
-  items?: NavItem[];
-  expandable?: boolean;
-  defaultOpen?: boolean;
-}
-
-const navGroups: NavGroupProps[] = [
-  {
-    label: "Using App Router",
-    subtitle: "Features available in /app",
-    icon: <Package className="h-4 w-4" />,
-    expandable: true,
-    defaultOpen: true,
-  },
-  {
-    label: "Latest Version",
-    subtitle: "16.0.7",
-    icon: <Tag className="h-4 w-4" />,
-    expandable: true,
-  },
-];
 
 const navItems: NavItem[] = [
-  { label: "Layouts and Pages", href: "#", active: true },
-  { label: "Linking and Navigating", href: "#" },
-  { label: "Server and Client Components", href: "#" },
-  { label: "Cache Components", href: "#" },
-  { label: "Fetching Data", href: "#" },
-  { label: "Updating Data", href: "#" },
-  { label: "Caching and Revalidating", href: "#" },
-  { label: "Error Handling", href: "#" },
-  { label: "CSS", href: "#" },
-  { label: "Image Optimization", href: "#" },
-  { label: "Font Optimization", href: "#" },
-  { label: "Metadata and OG Images", href: "#" },
-  { label: "Route Handlers", href: "#" },
-  { label: "Proxy", href: "#" },
-  { label: "Deploying", href: "#" },
-  { label: "Upgrading", href: "#" },
+  { label: "Introduction", href: "", active: true, value: 'home' },
+  { label: "About Me", href: "/about-me", value: 'about-me' },
+  { label: "Projects", href: "/projects", value: 'projects' },
+  { label: "Skills", href: "/skills", value: 'skills' },
+  { label: "Tools", href: "#", value: 'tools' },
+  { label: "Experience", href: "#", value: 'experiences' },
+  { label: "Education", href: "#", value: 'education' },
+  { label: "Contact Me", href: "/contact-me", value: 'contact-me' },
+  { label: "Stats", href: "#", value: 'stats' },
+  { label: "Resume", href: "#", value: 'resume' },
+  { label: "Cover Letter", href: "#", value: 'cover-letter' },
+  { label: "Gallery", href: "#", value: 'gallery' },
 ];
 
-const sections: { label: string; items?: NavItem[]; expandable?: boolean }[] = [
+export type ISection = Omit<NavItem, 'value'> & {
+  value: string | null;
+  disable?: boolean;
+}
+
+const sections: { label: string; items?: ISection[]; expandable?: boolean }[] = [
   {
-    label: "Guides",
-    expandable: true,
-  },
-  {
-    label: "API Reference",
+    label: "Blogs",
     expandable: true,
     items: [
-      { label: "Directives", href: "#" },
-      { label: "Components", href: "#" },
+      { label: "Coming Soon", href: "#", value: null, disable: true },
     ],
   },
 ];
-
-function NavGroup({ label, icon, subtitle, expandable }: NavGroupProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="mb-2">
-      <button
-        onClick={() => expandable && setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-2 px-2 rounded-md hover:bg-secondary/50 transition-colors"
-      >
-        <div className="flex items-center gap-2 sm:gap-3">
-          {icon && <span className="text-muted-foreground">{icon}</span>}
-          <div className="text-left">
-            <div className="text-xs sm:text-sm font-medium text-foreground">{label}</div>
-            {subtitle && (
-              <div className="text-[10px] sm:text-xs text-muted-foreground">{subtitle}</div>
-            )}
-          </div>
-        </div>
-        {expandable && (
-          <ChevronDown
-            className={cn(
-              "h-4 w-4 text-muted-foreground transition-transform",
-              isOpen && "rotate-180"
-            )}
-          />
-        )}
-      </button>
-    </div>
-  );
-}
 
 function SidebarSection({
   label,
@@ -106,7 +51,7 @@ function SidebarSection({
   expandable,
 }: {
   label: string;
-  items?: NavItem[];
+  items?: ISection[];
   expandable?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -121,7 +66,7 @@ function SidebarSection({
         {expandable && (
           <ChevronRight
             className={cn(
-              "h-4 w-4 text-muted-foreground transition-transform",
+              "h-4 w-4 text-muted-foreground transition-transform cursor-pointer",
               isOpen && "rotate-90"
             )}
           />
@@ -130,14 +75,19 @@ function SidebarSection({
       {items && isOpen && (
         <div className="mt-1 space-y-0.5 pl-2">
           {items.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="sidebar-link flex items-center justify-between text-xs sm:text-sm"
+            <Button 
+              variant="link"
+              disabled={item.disable}
             >
-              <span>{item.label}</span>
-              {item.items && <ChevronRight className="h-3 w-3" />}
-            </a>
+              <a
+                key={item.label}
+                href={item.href}
+                className="sidebar-link flex items-center justify-between text-xs sm:text-sm"
+              >
+                <span>{item.label}</span>
+                {item.items && <ChevronRight className="h-3 w-3" />}
+              </a>
+            </Button>
           ))}
         </div>
       )}
@@ -151,6 +101,20 @@ interface LeftSidebarProps {
 }
 
 export function LeftSidebar({ isOpen, onClose }: LeftSidebarProps) {
+  const location = useLocation();
+  const [active, setActive] = useState<INavValue>(navItems[0].value);
+
+  useLayoutEffect(() => {
+    if(location.pathname === "" || location.pathname === "/"){
+      setActive('home')
+    }
+    else{
+      /* do something for multi-step path */
+      setActive(location.pathname.replace("/", "") as INavValue)
+    }
+
+  }, [location.pathname])
+
   return (
     <>
       {/* Mobile overlay */}
@@ -171,21 +135,35 @@ export function LeftSidebar({ isOpen, onClose }: LeftSidebarProps) {
         {/* Mobile Table of Contents */}
         <MobileToc onNavigate={onClose} />
 
-        {/* Nav groups */}
-        {navGroups.map((group) => (
-          <NavGroup key={group.label} {...group} />
-        ))}
+        <div className="mb-2">
+          <Button
+            disabled
+            variant="ghost"
+            // onClick={() => expandable && setIsOpen(!isOpen)}
+            className="flex items-center justify-between w-full py-2 px-2 rounded-md hover:bg-secondary/50 transition-colors cursor-pointer"
+            
+          >
+            <div className="flex items-center gap-2 sm:gap-3">
+              <span className="text-muted-foreground"><Tag className="h-4 w-4" /></span>
+              <div className="text-left">
+                <div className="text-xs sm:text-sm font-medium text-foreground">Macbook Dock</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground">In Progress</div>
+              </div>
+            </div>
+            <ExternalLink className="h-4 w-4 text-muted-foreground transition-transform"/>
+          </Button>
+        </div>
 
         {/* Main nav items */}
         <div className="mt-4 space-y-0.5 border-l-2 border-border pl-2 sm:pl-3">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
-              className={cn("sidebar-link text-xs sm:text-sm", item.active && "sidebar-link-active")}
+              to={item.href}
+              className={cn("sidebar-link text-xs sm:text-sm", item.value === active && "sidebar-link-active")}
             >
-              {item.label}
-            </a>
+              {item.value === active ? `< ${item.label} />` : item.label}
+            </Link>
           ))}
         </div>
 

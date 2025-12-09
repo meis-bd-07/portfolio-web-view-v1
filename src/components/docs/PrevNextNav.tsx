@@ -5,32 +5,41 @@ interface NavItem {
   title: string;
   href: string;
 }
+interface INavs {
+  previous?: NavItem;
+  next?: NavItem;
+}
 
 // Define the documentation navigation order
-const docsNavOrder: NavItem[] = [
-  { title: "Getting Started", href: "/getting-started" },
-  { title: "Layouts and Pages", href: "/" },
-  { title: "API Reference", href: "/api-reference" },
-];
+const docsNavOrder: Record<string, INavs> = {
+  '/': {
+    next: { title: "About Me", href: "/about-me" }
+  },
+  '/about-me': {
+    previous: { title: "Introduction", href: "/" },
+    next: { title: "Projects", href: "/projects" }
+  },
+  '/projects': {
+    previous: { title: "About Me", href: "/about-me" },
+    next: { title: "Skills", href: "/skills" }
+  },
+  '/skills': {
+    previous: { title: "Projects", href: "/projects" },
+    next: { title: "Tools", href: "/tools" }
+  }
+};
 
 export function PrevNextNav() {
   const location = useLocation();
-  const currentIndex = docsNavOrder.findIndex(
-    (item) => item.href === location.pathname
-  );
 
-  const prevItem = currentIndex > 0 ? docsNavOrder[currentIndex - 1] : null;
-  const nextItem =
-    currentIndex < docsNavOrder.length - 1 ? docsNavOrder[currentIndex + 1] : null;
+  const prevItem = docsNavOrder[location.pathname].previous || null
+  const nextItem = docsNavOrder[location.pathname].next || null
 
   return (
-    <nav className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-border">
-      <div className="flex items-center justify-between gap-4">
-        {prevItem ? (
-          <Link
-            to={prevItem.href}
-            className="group flex-1 flex flex-col items-start p-4 rounded-lg border border-border bg-card hover:border-primary/50 hover:bg-accent/50 transition-all"
-          >
+    <nav className="flex justify-between items-center py-8">
+      <div className="w-1/2 flex justify-start">
+        {prevItem && (
+          <Link to={prevItem.href} className="group flex flex-col items-start max-w-max">
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1">
               <ChevronLeft className="h-3.5 w-3.5 group-hover:-translate-x-0.5 transition-transform" />
               Previous
@@ -39,15 +48,12 @@ export function PrevNextNav() {
               {prevItem.title}
             </span>
           </Link>
-        ) : (
-          <div className="flex-1" />
         )}
+      </div>
 
-        {nextItem ? (
-          <Link
-            to={nextItem.href}
-            className="group flex-1 flex flex-col items-end p-4 rounded-lg border border-border bg-card hover:border-primary/50 hover:bg-accent/50 transition-all"
-          >
+      <div className="w-1/2 flex justify-end">
+        {nextItem && (
+          <Link to={nextItem.href} className="group flex flex-col items-end max-w-max">
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1">
               Next
               <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -56,8 +62,6 @@ export function PrevNextNav() {
               {nextItem.title}
             </span>
           </Link>
-        ) : (
-          <div className="flex-1" />
         )}
       </div>
     </nav>

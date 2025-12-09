@@ -11,11 +11,13 @@ import "prismjs/components/prism-json";
 import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {
-  code: string;
+  code?: string;
   filename?: string;
   language?: string;
   collapsible?: boolean;
   defaultCollapsed?: boolean;
+  component?: React.ReactNode;
+  renderHtmlCode?: boolean;
 }
 
 export function CodeBlock({ 
@@ -23,13 +25,16 @@ export function CodeBlock({
   filename, 
   language = "typescript",
   collapsible = false,
-  defaultCollapsed = false 
+  defaultCollapsed = false,
+  component = null,
+  renderHtmlCode = false
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed);
   const [highlightedCode, setHighlightedCode] = useState("");
 
   useEffect(() => {
+    if(!code || renderHtmlCode){return}
     const lang = language === "tsx" ? "tsx" : 
                  language === "jsx" ? "jsx" :
                  language === "bash" ? "bash" :
@@ -38,7 +43,7 @@ export function CodeBlock({
     const grammar = Prism.languages[lang] || Prism.languages.typescript;
     const highlighted = Prism.highlight(code, grammar, lang);
     setHighlightedCode(highlighted);
-  }, [code, language]);
+  }, [code, language, renderHtmlCode]);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -71,7 +76,7 @@ export function CodeBlock({
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <span className="hidden sm:inline text-xs text-muted-foreground">{language}</span>
-            <Button
+            {code && <Button
               variant="ghost"
               size="icon"
               className="h-6 w-6 text-muted-foreground hover:text-foreground"
@@ -82,7 +87,7 @@ export function CodeBlock({
               ) : (
                 <Copy className="h-3.5 w-3.5" />
               )}
-            </Button>
+            </Button>}
           </div>
         </div>
       )}
@@ -92,12 +97,18 @@ export function CodeBlock({
           isCollapsed ? "max-h-0" : "max-h-[1000px]"
         )}
       >
-        <pre className="p-3 sm:p-4 overflow-x-auto text-xs sm:text-sm">
+        {(code && !renderHtmlCode) && <pre className="p-3 sm:p-4 overflow-x-auto text-xs sm:text-sm">
           <code 
             className="language-typescript"
             dangerouslySetInnerHTML={{ __html: highlightedCode }}
           />
-        </pre>
+        </pre>}
+         {(code && renderHtmlCode) &&
+          <div 
+            className="p-3 sm:p-4 overflow-x-auto text-xs sm:text-sm language-typescript"
+            dangerouslySetInnerHTML={{ __html: code }}
+          />}
+        {component && component}
       </div>
     </div>
   );
