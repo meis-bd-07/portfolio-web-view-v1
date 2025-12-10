@@ -57,4 +57,27 @@ const experiences = [
     }
 ];
 
-export {experiences}
+const educations = [
+    {
+        position: "B.Sc Hon's in CSE",
+        duration: "From January 2014 to December 2018",
+        company: "BGC Trust University Bangladesh",
+        location: 'Chandanaish, Chattogram',
+        url: 'https://bgctub.com/wp-content/uploads/2024/10/bgc-150x150.png'
+    }
+];
+
+const userData = {
+  name: "Erfanul Islam",
+  titleTags: ["FullStack", "App", "Web"],
+  location: "Bangladesh",
+  email: "erfan.orangetoolz@gmail.com",
+  number: "+8801825262557",
+  profileImageUrl: "/assets/images/profile.jpg",
+  isOnline: true,
+  bookACallUrl: "#",
+  websiteUrl: "https://www.linkedin.com/in/mohammad-erfanul-islam-sifat-6547351a6/", // Replace with the actual website URL
+  discord: "https://discord.com/users/mohammad_erfanul_islam_sifat"
+};
+
+export {experiences, educations, userData}

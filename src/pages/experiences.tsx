@@ -1,6 +1,5 @@
 import AnimatedTextBlock from "@/components/custom/animated-text-block";
-import { integrations } from "@/constants/skills";
-import ExperienceTimeline from "./experience-timeline";
+import ExperienceTimeline from "../components/custom/experience-timeline";
 
 export default function Experiences() {
 

@@ -1,56 +1,18 @@
 import { useLayoutEffect, useState } from "react";
 import { ChevronRight, ExternalLink, Tag } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { MobileToc } from "@/components/docs/MobileToc";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import { INavValue, ISection, navItems, sections } from "@/constants/left-sidebar";
 
-export type INavValue = "home" | "about-me" | "projects" | "skills" | "tools" | "experiences" | "education" | "contact-me" | "stats" | "cover-letter" | "resume" | 'blogs' | "gallery" | 'integrations' | 'achievements'
-
-interface NavItem {
-  label: string;
-  href?: string;
-  disable?: boolean;
-  items?: NavItem[];
-  value: INavValue;
-}
-
-const navItems: NavItem[] = [
-  { label: "Introduction", href: "", value: 'home' },
-  { label: "About Me", href: "/about-me", value: 'about-me' },
-  { label: "Projects", href: "/projects", value: 'projects' },
-  { label: "Skills", href: "/skills", value: 'skills' },
-  { label: "Integrations", href: "/integrations", value: 'integrations' },
-  { label: "Achievements", href: "/achievements", value: 'achievements', disable: true },
-  { label: "Experiences", href: "/experiences", value: 'experiences' },
-  { label: "Education", href: "#", value: 'education' },
-  { label: "Contact Me", href: "/contact-me", value: 'contact-me' },
-  { label: "Stats", href: "#", value: 'stats', disable: true },
-  { label: "Resume", href: "#", value: 'resume' },
-  { label: "Cover Letter", href: "#", value: 'cover-letter' },
-  { label: "Gallery", href: "#", value: 'gallery' },
-];
-
-export type ISection = Omit<NavItem, 'value'> & {
-  value: string | null;
-  disable?: boolean;
-}
-
-const sections: { label: string; items?: ISection[]; expandable?: boolean }[] = [
-  {
-    label: "Blogs",
-    expandable: true,
-    items: [
-      { label: "Coming Soon", href: "#", value: null, disable: true },
-    ],
-  },
-];
 
 function SidebarSection({
   label,
   items,
   expandable,
+  location
 }: {
+  location: string;
   label: string;
   items?: ISection[];
   expandable?: boolean;
@@ -76,18 +38,22 @@ function SidebarSection({
       {items && isOpen && (
         <div className="mt-1 space-y-0.5 pl-2">
           {items.map((item) => (
-            <Button 
+            <Button
               variant="link"
               disabled={item.disable}
+              key={item.label}
+              className="w-full p-0"
             >
-              <a
-                key={item.label}
-                href={item.href}
-                className="sidebar-link flex items-center justify-between text-xs sm:text-sm"
+              <Link
+                to={item.href || '/'}
+                className={`
+                sidebar-link flex items-center justify-between w-full overflow-hidden text-xs sm:text-sm
+                ${location === item.href ? "sidebar-link-active" : ""}
+                `}
               >
-                <span>{item.label}</span>
-                {item.items && <ChevronRight className="h-3 w-3" />}
-              </a>
+                <span className="truncate">{item.label}</span>
+                {item.items && <ChevronRight className="h-3 w-3 shrink-0 ml-2" />}
+              </Link>
             </Button>
           ))}
         </div>
@@ -134,7 +100,7 @@ export function LeftSidebar({ isOpen, onClose }: LeftSidebarProps) {
         )}
       >
         {/* Mobile Table of Contents */}
-        <MobileToc onNavigate={onClose} />
+        {/* <MobileToc onNavigate={onClose} /> */}
 
         <div className="mb-2">
           <Button
@@ -171,7 +137,7 @@ export function LeftSidebar({ isOpen, onClose }: LeftSidebarProps) {
         {/* Sections */}
         <div className="mt-6">
           {sections.map((section) => (
-            <SidebarSection key={section.label} {...section} />
+            <SidebarSection key={section.label}  location={location.pathname} {...section} />
           ))}
         </div>
       </aside>

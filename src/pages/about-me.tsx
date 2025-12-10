@@ -1,7 +1,7 @@
 import AnimatedTextBlock from "@/components/custom/animated-text-block";
 import { ArrowRight, Calendar, Copy, Download, Droplet, Globe, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import MyTimezone from "./timezone";
+import MyTimezone from "../components/custom/timezone";
 
 function InfoItem({ icon, label, value, showCopy = false }) {
     return (

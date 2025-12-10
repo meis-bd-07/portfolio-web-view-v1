@@ -25,14 +25,32 @@ const routeBreadcrumbs: Record<string, BreadcrumbItem[]> = {
   ],
   "/experiences": [
     { label: "Experiences", href: "/experiences" },
+  ],
+  "/education": [
+    { label: "Education", href: "/education" },
+  ],
+  "/contact-me": [
+    { label: "Contact Me", href: "/contact-me" },
+  ],
+  "/resume": [
+    { label: "Resume", href: "/resume" },
+  ],
+  "/cover-letter": [
+    { label: "Cover Letter", href: "/cover-letter" },
+  ],
+  "/gallery": [
+    { label: "Gallery", href: "/gallery" },
+  ],
+  "/blogs": [
+    { label: "Blogs", href: "/blogs" },
   ]
 };
 
 export function Breadcrumbs() {
   const location = useLocation();
-  const breadcrumbs = routeBreadcrumbs[location.pathname] || [
-    { label: "Docs", href: "/" },
-  ];
+  const breadcrumbs = routeBreadcrumbs[location.pathname] || routeBreadcrumbs['/'];
+
+  /* TODO: update for blogs individual post */
 
   return (
     <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">

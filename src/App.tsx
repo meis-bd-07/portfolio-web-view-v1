@@ -15,6 +15,12 @@ const Projects = lazy(() => import("@/pages/projects"));
 const Skills = lazy(() => import("@/pages/skills"));
 const Integrations = lazy(() => import("@/pages/integrations"));
 const Experiences = lazy(() => import("@/pages/experiences"));
+const Education = lazy(() => import("@/pages/education"));
+const ContactMe = lazy(() => import("@/pages/contact-me"));
+const Resume = lazy(() => import("@/pages/resume"));
+const CoverLetter = lazy(() => import("@/pages/cover-letter"));
+const Gallery = lazy(() => import("@/pages/gallery"));
+const Blogs = lazy(() => import("@/pages/blogs"));
 
 const queryClient = new QueryClient();
 
@@ -57,6 +63,41 @@ const App = () => (
                   <Experiences />
                 </Suspense>
               )} />
+              <Route path="/education" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <Education />
+                </Suspense>
+              )} />
+              <Route path="/contact-me" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <ContactMe />
+                </Suspense>
+              )} />
+              <Route path="/resume" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <Resume />
+                </Suspense>
+              )} />
+              <Route path="/cover-letter" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <CoverLetter />
+                </Suspense>
+              )} />
+              <Route path="/gallery" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <Gallery />
+                </Suspense>
+              )} />
+              <Route path="/blogs" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <Blogs />
+                </Suspense>
+              )} />
+              {/* <Route path="/blogs/:key" element={(
+                <Suspense fallback={<AboutSkeleton />}>
+                  <Blogs />
+                </Suspense>
+              )} /> */}
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

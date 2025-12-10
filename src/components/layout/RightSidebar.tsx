@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { tocItems as globalTocItems } from "@/constants/right-sidebar";
-import { useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
+import UserCard from "../custom/visiting-card";
 
 
 export function RightSidebar() {
@@ -57,20 +57,20 @@ export function RightSidebar() {
               </div>
               <div className="text-xs text-center sm:text-sm text-muted-foreground">
                 Developed by&nbsp;
-                <span className="font-medium transition-colors text-primary hover:text-primary/80">
-                Erfanul Islam</span>
+                <Link to={'/contact-me'} className="font-medium transition-colors text-primary hover:text-primary/80">
+                Erfanul Islam</Link>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 p-4 border rounded-2xl shadow-md bg-white/80">
+        <div className="flex flex-wrap gap-1 p-3 border rounded-2xl shadow-md bg-white/80 mb-2">
           {["Open To Work", "Remote", "On-Site", "Full-Time"].map((item) => (
-            <Button key={item} variant="ghost" size="sm" className="bg-foreground text-background text-xs sm:text-sm">
-              {item}
-            </Button>
+            <code key={item} className="code-inline bg-foreground text-background text-xs sm:text-xs">{item}</code>
           ))}
         </div>
+
+        <UserCard />
       </div>
     </aside>
   );

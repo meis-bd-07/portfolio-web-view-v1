@@ -33,11 +33,25 @@ const tocItemsForProjects: TocItem[] = [
   { id: "12", label: "Super Shop Management" },
 ];
 
+const tocItemsForExperiences: TocItem[] = [
+  { id: "0", label: "Senior Engineer & Team Lead" },
+  { id: "1", label: "Senior Engineer (Mobile App Team)" },
+  { id: "2", label: "Mid Level Engineer (FullStack)" },
+  { id: "3", label: "Frontend Team Lead (Partial)" },
+];
+
 export const tocItems: Record<string, TocItem[]> = {
     '/': [],
     '/about-me': [],
     '/projects': tocItemsForProjects,
     '/skills': [],
     '/integrations': [],
+    '/experiences': tocItemsForExperiences,
+    '/education': [],
+    '/contact-me': [],
+    '/resume': [],
+    '/cover-letter': [],
+    '/gallery': [],
+    '/blogs': [],
     '/dummy': tocItemsForDummy
 }

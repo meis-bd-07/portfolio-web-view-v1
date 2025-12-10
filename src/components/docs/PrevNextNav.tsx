@@ -34,6 +34,29 @@ const docsNavOrder: Record<string, INavs> = {
   '/experiences': {
     previous: { title: "Integration", href: "/integrations" },
     next: { title: "Education", href: "/education" }
+  },
+  '/education': {
+    previous: { title: "Experience", href: "/experiences" },
+    next: { title: "Contact Me", href: "/contact-me" }
+  },
+  '/contact-me': {
+    previous: { title: "Education", href: "/education" },
+    next: { title: "Resume", href: "/resume" }
+  },
+  '/resume': {
+    previous: { title: "Contact Me", href: "/contact-me" },
+    next: { title: "Cover Letter", href: "/cover-letter" }
+  },
+  '/cover-letter': {
+    previous: { title: "Resume", href: "/resume" },
+    next: { title: "Gallery", href: "/gallery" }
+  },
+  '/gallery': {
+    previous: { title: "Cover Letter", href: "/cover-letter" },
+    next: { title: "Blogs", href: "/blogs" }
+  },
+  '/blogs': {
+    previous: { title: "Gallery", href: "/gallery" }
   }
 };
 
