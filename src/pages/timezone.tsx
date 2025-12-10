@@ -46,7 +46,8 @@ const MyTimezone = () => {
                         >
                             <div className="text-2xl cursor-pointer animate-pulse">📍</div>
                             <div className="absolute left-6 top-0 px-3 py-2 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 transition-all text-xs whitespace-nowrap flex flex-col gap-1">
-                                <span className="mr-1">{loc.flag}</span> {loc.title}
+                                <span className="mr-1">{loc.flag}</span>
+                                <span className="text-xs text-gray-500">{loc.title}</span>
                                 <span className="text-xs text-gray-500">Difference: {diffText}</span>
                             </div>
                         </div>

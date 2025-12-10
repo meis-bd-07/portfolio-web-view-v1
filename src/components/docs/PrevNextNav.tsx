@@ -25,7 +25,15 @@ const docsNavOrder: Record<string, INavs> = {
   },
   '/skills': {
     previous: { title: "Projects", href: "/projects" },
-    next: { title: "Tools", href: "/tools" }
+    next: { title: "Integration", href: "/integrations" }
+  },
+  '/integrations': {
+    previous: { title: "Skills", href: "/skills" },
+    next: { title: "Experience", href: "/experiences" }
+  },
+  '/experiences': {
+    previous: { title: "Integration", href: "/integrations" },
+    next: { title: "Education", href: "/education" }
   }
 };
 

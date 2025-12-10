@@ -5,26 +5,27 @@ import { MobileToc } from "@/components/docs/MobileToc";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
-export type INavValue = "home" | "about-me" | "projects" | "skills" | "tools" | "experiences" | "education" | "contact-me" | "stats" | "cover-letter" | "resume" | 'blogs' | "gallery"
+export type INavValue = "home" | "about-me" | "projects" | "skills" | "tools" | "experiences" | "education" | "contact-me" | "stats" | "cover-letter" | "resume" | 'blogs' | "gallery" | 'integrations' | 'achievements'
 
 interface NavItem {
   label: string;
   href?: string;
-  active?: boolean;
+  disable?: boolean;
   items?: NavItem[];
   value: INavValue;
 }
 
 const navItems: NavItem[] = [
-  { label: "Introduction", href: "", active: true, value: 'home' },
+  { label: "Introduction", href: "", value: 'home' },
   { label: "About Me", href: "/about-me", value: 'about-me' },
   { label: "Projects", href: "/projects", value: 'projects' },
   { label: "Skills", href: "/skills", value: 'skills' },
-  { label: "Tools", href: "#", value: 'tools' },
-  { label: "Experience", href: "#", value: 'experiences' },
+  { label: "Integrations", href: "/integrations", value: 'integrations' },
+  { label: "Achievements", href: "/achievements", value: 'achievements', disable: true },
+  { label: "Experiences", href: "/experiences", value: 'experiences' },
   { label: "Education", href: "#", value: 'education' },
   { label: "Contact Me", href: "/contact-me", value: 'contact-me' },
-  { label: "Stats", href: "#", value: 'stats' },
+  { label: "Stats", href: "#", value: 'stats', disable: true },
   { label: "Resume", href: "#", value: 'resume' },
   { label: "Cover Letter", href: "#", value: 'cover-letter' },
   { label: "Gallery", href: "#", value: 'gallery' },
@@ -160,7 +161,7 @@ export function LeftSidebar({ isOpen, onClose }: LeftSidebarProps) {
             <Link
               key={item.label}
               to={item.href}
-              className={cn("sidebar-link text-xs sm:text-sm", item.value === active && "sidebar-link-active")}
+              className={cn("sidebar-link text-xs sm:text-sm", item.disable && "cursor-not-allowed pointer-events-none opacity-50", item.value === active && "sidebar-link-active")}
             >
               {item.value === active ? `< ${item.label} />` : item.label}
             </Link>

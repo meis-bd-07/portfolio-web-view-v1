@@ -1,8 +1,8 @@
-import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { tocItems as globalTocItems } from "@/constants/right-sidebar";
 import { useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 
 export function RightSidebar() {
@@ -66,9 +66,9 @@ export function RightSidebar() {
 
         <div className="flex flex-wrap gap-3 p-4 border rounded-2xl shadow-md bg-white/80">
           {["Open To Work", "Remote", "On-Site", "Full-Time"].map((item) => (
-            <span key={item} className="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 transition shadow-sm">
+            <Button key={item} variant="ghost" size="sm" className="bg-foreground text-background text-xs sm:text-sm">
               {item}
-            </span>
+            </Button>
           ))}
         </div>
       </div>

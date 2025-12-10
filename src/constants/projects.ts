@@ -18,6 +18,15 @@ const projects = [
         type: "mobile",
     },
     {
+        title: "FTPO Mobile Application (iOS)",
+        description: "A iOS mobile app by React Native Cli focused on social interface with some features like follow, like, share, story, save to collection, user's post timeline etc",
+        keywords: ["React Native", "Redux", "Firebase", "TypeScript", "RestApi"],
+        link: "",
+        date: "2023 to 2024",
+        role: "Mobile Developer, Team Lead",
+        type: "mobile",
+    },
+    {
         title: "Super Local Fans",
         description: "Contribute to build a micro-frontend based web application to make campaign to post into social media by recording videos",
         keywords: ["React.js", "Vite", "Next.js"],

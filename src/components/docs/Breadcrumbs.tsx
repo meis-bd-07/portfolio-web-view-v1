@@ -19,6 +19,12 @@ const routeBreadcrumbs: Record<string, BreadcrumbItem[]> = {
   ],
   "/skills": [
     { label: "Skills", href: "/skills" },
+  ],
+  "/integrations": [
+    { label: "Integrations", href: "/integrations" },
+  ],
+  "/experiences": [
+    { label: "Experiences", href: "/experiences" },
   ]
 };
 

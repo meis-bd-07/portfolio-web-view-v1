@@ -21,20 +21,23 @@ const tocItemsForProjects: TocItem[] = [
   { id: "0", label: "Pypypro (SaaS)" },
   { id: "1", label: "Salespype Mobile Application" },
   { id: "2", label: "Super Local Fans" },
-  { id: "3", label: "Connect Social Mobile Application" },
-  { id: "4", label: "Video Making Manager" },
-  { id: "5", label: "Reward mobile application" },
-  { id: "6", label: "Chatbot Ai" },
-  { id: "7", label: "Nordisk CRM" },
-  { id: "8", label: "Map Contact Mobile Application" },
-  { id: "9", label: "Earn5Star" },
-  { id: "10", label: "Call Tracking" },
-  { id: "11", label: "Super Shop Management" },
+  { id: "3", label: "FTPO Mobile Application (iOS)" },
+  { id: "4", label: "Connect Social Mobile Application" },
+  { id: "5", label: "Video Making Manager" },
+  { id: "6", label: "Reward mobile application" },
+  { id: "7", label: "Chatbot Ai" },
+  { id: "8", label: "Nordisk CRM" },
+  { id: "9", label: "Map Contact Mobile Application" },
+  { id: "10", label: "Earn5Star" },
+  { id: "11", label: "Call Tracking" },
+  { id: "12", label: "Super Shop Management" },
 ];
 
 export const tocItems: Record<string, TocItem[]> = {
     '/': [],
     '/about-me': [],
     '/projects': tocItemsForProjects,
+    '/skills': [],
+    '/integrations': [],
     '/dummy': tocItemsForDummy
 }
