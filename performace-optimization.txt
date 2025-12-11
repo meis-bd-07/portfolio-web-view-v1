@@ -1,0 +1,5 @@
+replace react-pdf with another package. if possible create own pdf viewer or iframe
+replace gsap with another package. Or add custom functionality
+
+move all *.js constant value to json and use like:
+const skills = await import("./skills.json");

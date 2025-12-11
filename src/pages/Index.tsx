@@ -1,25 +1,8 @@
 import { CodeBlock } from "@/components/docs/CodeBlock";
-import { PrevNextNav } from "@/components/docs/PrevNextNav";
 import DecryptText from "@/components/custom/decrypt-text";
 import AnimatedTextBlock from "@/components/custom/animated-text-block";
 import TypingText from "@/components/custom/typing-text";
 
-// const blockText = `
-// <p className="text-sm sm:text-base text-muted-foreground">
-// I am a <code className="code-inline">JavaScript-focused developer</code> with <code className="code-inline">7+ years</code> of experience building scalable, high-performance web and mobile applications.
-// As a full-stack <code className="code-inline">mobile app developer</code> specializing in <code className="code-inline underlined underline-clip">React Native</code>, 
-// I create robust <code className="code-inline">hybrid apps</code> for both <code className="code-inline underlined underline-mask">Android</code> and <code className="code-inline underlined underline-mask">iOS</code>, delivering smooth, user-friendly experiences tailored to diverse client needs.
-
-// My expertise spans <code className="code-inline underlined underline-clip">React</code>, <code className="code-inline underlined underline-clip">React Native</code>, <code className="code-inline">Node.js</code>, NestJS, <code className="code-inline">Next.js</code>, and <code className="code-inline underlined underline-clip">TypeScript</code>, 
-// enabling me to design and develop end-to-end solutions—from intuitive front-end interfaces to secure, optimized backend systems. 
-
-// I have extensive experience with <code className="code-inline underlined underline-overflow">micro-frontend</code> architecture, <code className="code-inline">multilingual platforms</code>, and <code className="code-inline">permission-based systems</code>, along with strong skills in API development, database design, and performance optimization.
-// With 4+ years of <code className="code-inline underlined underline-overflow">team leadership</code>, I’ve led successful development initiatives in Agile environments using GitHub, CI/CD pipelines, Docker, and modern cloud technologies. 
-// I’m committed to delivering clean, maintainable code and high-quality products that exceed expectations.
-
-// If you’re looking for a reliable and versatile developer to bring your ideas to life with scalable, modern architecture—I'm here to help.
-// </p>
-// `;
 const blockText = `
 <p className="text-sm sm:text-base text-muted-foreground">
 JavaScript-focused full-stack developer with <code className="code-inline">7+</code> years of experience specializing 

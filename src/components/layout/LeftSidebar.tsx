@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { INavValue, ISection, navItems, sections } from "@/constants/left-sidebar";
-
+// import { MobileToc } from "../docs/MobileToc";
 
 function SidebarSection({
   label,
@@ -119,6 +119,12 @@ export function LeftSidebar({ isOpen, onClose }: LeftSidebarProps) {
             </div>
             <ExternalLink className="h-4 w-4 text-muted-foreground transition-transform"/>
           </Button>
+        </div>
+
+        <div className="sm:hidden mt-4 space-y-0.5 pl-3 flex flex-col gap-1">
+          <a href="https://www.linkedin.com/in/mohammad-erfanul-islam-sifat-6547351a6/" target="_blank" className="nav-link flex flex-row gap-1 justify-between">LinkedIn <ExternalLink height={17} width={15} /></a>
+          <a href="https://drive.google.com/file/d/1LyfCMpzjxMQhiAiYaW0a9JunGqgjyuv7/view?usp=sharing" target="_blank" className="nav-link flex flex-row gap-1 justify-between">Resume <ExternalLink height={17} width={15} /></a>
+          <a href="https://github.com/ErfanOrangetoolz" target="_blank" className="nav-link flex flex-row gap-1 justify-between">Github <ExternalLink height={17} width={15} /></a>
         </div>
 
         {/* Main nav items */}
