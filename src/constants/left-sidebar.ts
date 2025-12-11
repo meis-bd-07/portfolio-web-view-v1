@@ -30,20 +30,19 @@ export type ISection = Omit<NavItem, 'value'> & {
   disable?: boolean;
 }
 
-
 const allBlogs = [
-    { 
-      label: "JSON vs TOON in AI Context", 
-      category: 'Ai Context',
-      date: 'October 07, 2025',
-      description: 'JSON (JavaScript Object Notation) is a lightweight data format used to store and exchange structured information in a readable way. It is widely used for APIs, configuration files, and data storage across applications. In the context of TOON AI, JSON often serves as the format for input parameters, model settings, and output data. TOON AI, on the other hand, is an AI-powered tool focused on generating creative content, such as cartoons or stylized images. Comparing JSON and TOON AI highlights the difference between a data format (JSON) and an AI-driven content generation system (TOON AI), where JSON acts as the bridge for communication and configuration.',
-      href: "/blogs/wyiqxneojsjex", 
-      value: "wyiqxneojsjex", 
-      disable: true,
-      show: true
-    },
-    { label: "Coming Soon", href: "#", value: null, disable: true, show: false },
-  ]
+  { 
+    label: "JSON vs TOON in AI Context", 
+    category: 'Ai Context',
+    date: 'October 07, 2025',
+    description: 'JSON (JavaScript Object Notation) is a lightweight data format used to store and exchange structured information in a readable way. It is widely used for APIs, configuration files, and data storage across applications. In the context of TOON AI, JSON often serves as the format for input parameters, model settings, and output data. TOON AI, on the other hand, is an AI-powered tool focused on generating creative content, such as cartoons or stylized images. Comparing JSON and TOON AI highlights the difference between a data format (JSON) and an AI-driven content generation system (TOON AI), where JSON acts as the bridge for communication and configuration.',
+    href: "/blogs/wyiqxneojsjex", 
+    value: "wyiqxneojsjex", 
+    disable: true,
+    show: true
+  },
+  { label: "Coming Soon", href: "#", value: null, disable: true, show: false },
+]
 
 const sections: { label: string; items?: ISection[]; expandable?: boolean }[] = [
   {

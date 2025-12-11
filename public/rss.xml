@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+   <channel>
+      <!-- Title of the RSS Feed -->
+      <title>Mohammad Erfanul Islam Sifat</title>
+      
+      <!-- Link to your website -->
+      <link>https://www.erfansifat.com/</link>
+      
+      <!-- Description of the feed -->
+      <description>
+         I am writing to express my interest in the position advertised in your recent job circular. With over 7 years of professional experience as a JavaScript-based developer—and more than five years specializing in React Native—I bring a proven track record of building robust, scalable, and user-centered applications across both mobile and web platforms.
+
+         I have also worked on a SaaS-based CRM product built with a micro-frontend architecture, which strengthened my ability to design modular, maintainable, and large-scale systems.
+
+         My technical expertise includes React, Vite, Next.js, React Native, TypeScript, Redux, RTK Query, Zustand, Firebase, and various real-time communication technologies. I have hands-on experience integrating advanced features such as mapping solutions, Twilio voice calls, push notifications, SMS/MMS services, email automation, and live data synchronization using sockets. These capabilities have enabled me to deliver end-to-end solutions that are performant, reliable, and aligned with modern industry standards.
+
+         On the backend, I have experience with Node.js and Nest.js, working with both MySQL and PostgreSQL databases to build secure and scalable APIs.
+
+         I am particularly passionate about creating clean, efficient architectures and writing high-quality, scalable code. I enjoy collaborating with cross-functional teams, solving complex technical challenges, and contributing to overall product strategy and user experience.
+
+         I am confident that my background, strong ownership mindset, and dedication to delivering exceptional results make me a valuable addition to your team. I would welcome the opportunity to discuss how my skills and experience align with your project and organizational goals.
+
+         Thank you for your time and consideration. I look forward to the possibility of contributing to your team.
+      </description>
+      
+      <!-- Language of the feed -->
+      <language>en-us</language>
+      
+      <!-- Last updated date -->
+      <lastBuildDate>Sun, 07 Dec 2025 12:00:00 +0000</lastBuildDate>
+      
+      <item>
+         <title>JSON vs TOON in AI Context</title>
+         <link>https://www.erfansifat.com/blogs/wyiqxneojsjex</link>
+         <description>
+         JSON (JavaScript Object Notation) is a lightweight data format used to store and exchange structured information in a readable way. It is widely used for APIs, configuration files, and data storage across applications. In the context of TOON AI, JSON often serves as the format for input parameters, model settings, and output data. TOON AI, on the other hand, is an AI-powered tool focused on generating creative content, such as cartoons or stylized images. Comparing JSON and TOON AI highlights the difference between a data format (JSON) and an AI-driven content generation system (TOON AI), where JSON acts as the bridge for communication and configuration.
+         </description>
+         <pubDate>Thu, 11 Dec 2025 10:00:00 +0000</pubDate>
+         <guid>https://www.erfansifat.com/blogs/wyiqxneojsjex</guid>
+      </item>
+
+      <!-- Add more post her -->
+   </channel>
+</rss>

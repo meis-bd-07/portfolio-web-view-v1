@@ -41,7 +41,7 @@ const Index = () => {
           G'day 👋, I'm Erfanul Islam
         </h1>
         <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
-          <p><DecryptText text="First Solve The Problem, Then Write Code" speed={30} /> </p>
+          <DecryptText text="First Solve The Problem, Then Write Code" speed={30} />
         </blockquote>
       </div>
 

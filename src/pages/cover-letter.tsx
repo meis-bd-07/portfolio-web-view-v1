@@ -9,9 +9,7 @@ const CoverLetter = () => {
                     Cover Letter
                 </h1>
                 <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
-                    <p>
-                        <AnimatedTextBlock containerClass="" htmlText={"My Career Intent — The Why Behind the Role"} speed={15} />
-                    </p>
+                    <AnimatedTextBlock containerClass="" htmlText={"My Career Intent — The Why Behind the Role"} speed={15} />
                 </blockquote>
             </div>
 

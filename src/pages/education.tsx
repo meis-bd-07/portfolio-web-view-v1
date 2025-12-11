@@ -9,9 +9,7 @@ export default function Education() {
                 Education
             </h1>
             <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
-                <p>
-                    <AnimatedTextBlock containerClass="" htmlText={"Smile & be the reason of other's smile"} speed={30} />
-                </p>
+                <AnimatedTextBlock containerClass="" htmlText={"Smile & be the reason of other's smile"} speed={30} />
             </blockquote>
         </div>
 

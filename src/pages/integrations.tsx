@@ -10,9 +10,7 @@ export default function Integrations() {
             Integrations
         </h1>
         <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
-            <p>
-                <AnimatedTextBlock containerClass="" htmlText={"Plug, Play & Extend — Third-Party Services in Action"} speed={30} />
-            </p>
+            <AnimatedTextBlock containerClass="" htmlText={"Plug, Play & Extend — Third-Party Services in Action"} speed={30} />
         </blockquote>
     </div>
 

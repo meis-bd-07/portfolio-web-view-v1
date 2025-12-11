@@ -28,9 +28,7 @@ const AboutMe = () => {
                     About Erfan
                 </h1>
                 <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
-                    <p>
-                        <AnimatedTextBlock containerClass="" htmlText={"More than just a title—let’s dive deeper!"} speed={20} />
-                    </p>
+                    <AnimatedTextBlock containerClass="" htmlText={"More than just a title—let’s dive deeper!"} speed={20} />
                 </blockquote>
             </div>
 

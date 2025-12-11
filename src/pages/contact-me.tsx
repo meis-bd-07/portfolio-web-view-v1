@@ -27,9 +27,7 @@ const ContactMe = () => {
                     Contact @erfan
                 </h1>
                 <blockquote className="text-xl sm:text-2xl font-semibold text-muted-foreground mb-3 sm:mb-4 blockquote">
-                    <p>
-                        <AnimatedTextBlock containerClass="" htmlText={"Reach Out, Let’s Talk"} speed={20} />
-                    </p>
+                    <AnimatedTextBlock containerClass="" htmlText={"Reach Out, Let’s Talk"} speed={20} />
                 </blockquote>
             </div>
 
