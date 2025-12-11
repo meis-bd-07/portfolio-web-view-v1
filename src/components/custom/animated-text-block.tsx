@@ -10,18 +10,21 @@ function stripHTML(htmlText: string) {
 }
 
 export default function AnimatedTextBlock({
-  htmlText, speed = 70, classes = "", containerClass = "p-6 tracking-wide leading-relaxed"
+  htmlText, speed = 70, classes = "", containerClass = "p-6 tracking-wide leading-relaxed", showAnimation = true
 }: {
-  htmlText: string; speed?: number; classes?: string; containerClass?: string
+  htmlText: string; speed?: number; classes?: string; containerClass?: string, showAnimation?: boolean
 }) {
   htmlText = htmlText ? htmlText.replace(/className/g, "class") : htmlText;
   // Extract plain text by removing HTML tags
   const plainText = stripHTML(htmlText)
 
   const [typedText, setTypedText] = useState("");
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(!showAnimation || false);
 
   useLayoutEffect(() => {
+    if(!showAnimation){
+      return
+    }
     if(!plainText){return}
     let index = 0;
 

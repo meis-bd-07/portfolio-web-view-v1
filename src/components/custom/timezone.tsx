@@ -33,6 +33,7 @@ const MyTimezone = () => {
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/2000px-World_map_-_low_resolution.svg.png"
                     className="w-full h-full object-cover opacity-90"
+                    alt="Mohammad Erfanul Islam Sifat"
                 />
 
                 {mapMarkers.map((loc, i) => {

@@ -7,7 +7,7 @@ export default function ExperienceTimeline() {
         {experiences.map((item, index) => (
           <div key={index} className="mb-10 ml-6" id={index.toString()}>
             <span className="absolute -left-4 flex items-center justify-center w-8 h-8 rounded-full bg-amber-100">
-                <img src={item.url} alt={item.company} height={15} width={15} />
+                <img src={item.url} alt={item.company + " | Mohammad Erfanul Islam Sifat"} height={15} width={15} />
             </span>
 
             <div className="p-5 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 transition-all">

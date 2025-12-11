@@ -31,6 +31,7 @@ export default function DiamondGallery() {
         <img
             key={i}
             src={src}
+            alt="Mohammad Erfanul Islam Sifat"
             className={`
                 max-w-full aspect-square object-cover rounded-md
                 transition-[clip-path,filter] duration-500

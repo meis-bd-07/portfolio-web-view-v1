@@ -44,7 +44,17 @@ export function RightSidebar() {
           </>
         )}
 
-        <div className={`mt-8 pt-4 ${tocItems.length > 0 ? 'border-t border-border' : ''}`}>
+        {tocItems.length > 0 && <div className="border-t border-border mb-4 mt-4" />}
+
+        <div className={`flex flex-wrap gap-1 p-4 border rounded-2xl shadow-xl bg-white mb-2 border-gray-200 dark:bg-gray-900`}>
+          {["Open To Work", "Remote", "On-Site", "Full-Time"].map((item) => (
+            <code key={item} className="code-inline bg-foreground text-background text-xs sm:text-xs">{item}</code>
+          ))}
+        </div>
+
+        <UserCard />
+
+        <div className={`mt-2 pt-2`}>
           <div className="container-wrapper">
             <div className="container flex flex-col items-center justify-center py-4 space-y-2">
               <div className="max-w-3xl text-xs leading-relaxed text-center sm:text-sm text-balance text-muted-foreground">
@@ -64,13 +74,6 @@ export function RightSidebar() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1 p-3 border rounded-2xl shadow-md bg-white/80 mb-2">
-          {["Open To Work", "Remote", "On-Site", "Full-Time"].map((item) => (
-            <code key={item} className="code-inline bg-foreground text-background text-xs sm:text-xs">{item}</code>
-          ))}
-        </div>
-
-        <UserCard />
       </div>
     </aside>
   );

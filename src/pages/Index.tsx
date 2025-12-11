@@ -53,7 +53,7 @@ const Index = () => {
           filename="/introduction-summary"
           language="txt"
           collapsible
-          component={<AnimatedTextBlock classes="text-sm sm:text-base text-muted-foreground" htmlText={blockText.trim()} speed={10} />}
+          component={<AnimatedTextBlock classes="text-sm sm:text-base text-muted-foreground" htmlText={blockText.trim()} speed={0} showAnimation={false} />}
         />
       </section>
     </>

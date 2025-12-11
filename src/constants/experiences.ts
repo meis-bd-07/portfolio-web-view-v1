@@ -69,10 +69,11 @@ const educations = [
 
 const userData = {
   name: "Erfanul Islam",
-  titleTags: ["FullStack", "App", "Web"],
-  location: "Bangladesh",
+  titleTags: ["FullStack", "Mobile App", "Web"],
+  location: "Dhaka, Bangladesh",
   email: "erfan.orangetoolz@gmail.com",
   number: "+8801825262557",
+  whatsApp: "+8801825262557",
   profileImageUrl: "/assets/images/profile.jpg",
   isOnline: true,
   bookACallUrl: "#",
