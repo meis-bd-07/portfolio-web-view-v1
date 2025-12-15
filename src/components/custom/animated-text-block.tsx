@@ -39,7 +39,7 @@ export default function AnimatedTextBlock({
     }, speed);
 
     return () => clearInterval(interval || '');
-  }, [plainText, speed]);
+  }, [plainText, showAnimation, speed]);
 
   return (
     <div className={containerClass}>

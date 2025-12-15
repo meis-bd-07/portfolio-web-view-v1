@@ -4,16 +4,19 @@ import AnimatedTextBlock from "@/components/custom/animated-text-block";
 import TypingText from "@/components/custom/typing-text";
 
 const blockText = `
-<p className="text-sm sm:text-base text-muted-foreground">
-JavaScript-focused full-stack developer with <code className="code-inline">7+</code> years of experience specializing 
-in React Native (hybrid app for <code className="code-inline underlined underline-clip">Android</code> & <code className="code-inline underlined underline-clip">iOS</code>) and modern web frameworks. 
-I build smooth, scalable digital products with clean code, strong micro-frontend architecture, multilingual support, and optimized backend services 
-powered by <code className="code-inline underlined underline-clip">React</code> - Vite, <code className="code-inline underlined underline-clip">React Native</code>, Next.js, Node.js, Nest.js and <code className="code-inline underlined underline-overflow">TypeScript</code>.
-
-With 4+ years of team <code className="code-inline underlined underline-overflow">leadership</code>, I’ve led successful development initiatives in Agile environments using GitHub, CI/CD pipelines, Docker, and modern cloud technologies. 
-I’m committed to delivering clean, maintainable code and high-quality products that exceed expectations.
-</p>
-`;
+  <p className="text-sm sm:text-base text-muted-foreground">
+    JavaScript full-stack developer with 7+ years’ experience, 
+    specializing in <strong className="highlight">React Native</strong> (hybrid Android & iOS apps), 
+    <strong className="highlight">React - Vite</strong>, 
+    Next.js, Node.js, Nest.js, and 
+    <strong className="highlight">TypeScript</strong>. 
+    Skilled in 
+    <strong className="highlight">micro-frontend architecture</strong>, 
+    multilingual apps, permission based structure, and optimized backend services. 
+    With 3+ years in <strong className="highlight">team leadership</strong>, 
+    I drive Agile development using GitHub, CI/CD, Docker, and modern cloud technologies, delivering clean, scalable, high-quality products.
+  </p>
+`
 
 const Index = () => {
   return (
